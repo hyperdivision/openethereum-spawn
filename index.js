@@ -61,6 +61,8 @@ class Parity extends EventEmitter {
       this.argv.push('--logging', modules)
     }
 
+    if (Array.isArray(opts.argv)) this.argv.push(...opts.argv)
+
     this.process = spawn(this.execPath, this.argv, { stdio: opts.stdio })
     this.started = isRunningPoll(this.ipcPath, this.process)
     this.stopped = new Promise(resolve => {
