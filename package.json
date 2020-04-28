@@ -6,7 +6,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {},
+  "dependencies": {
+    "newline-decoder": "^1.0.0"
+  },
   "devDependencies": {},
   "scripts": {
     "pretest": "standard",

@@ -2,9 +2,13 @@ const path = require('path')
 const os = require('os')
 const net = require('net')
 const { spawn } = require('child_process')
+const NewlineDecoder = require('newline-decoder')
+const { EventEmitter } = require('events')
 
-class Parity {
+class Parity extends EventEmitter {
   constructor (opts = {}) {
+    super()
+
     this.execPath = opts.parityExec == null ? 'parity' : path.resolve(opts.parityExec)
     this.argv = []
 
@@ -62,6 +66,25 @@ class Parity {
     this.stopped = new Promise(resolve => {
       this.process.on('exit', resolve)
     })
+
+    const stdout = new NewlineDecoder()
+    const stderr = new NewlineDecoder()
+
+    if (this.process.stdout) {
+      this.process.stdout.on('data', (data) => {
+        for (const line of stdout.push(data)) {
+          this.emit('log', line, 'stdout')
+        }
+      })
+    }
+
+    if (this.process.stderr) {
+      this.process.stderr.on('data', (data) => {
+        for (const line of stderr.push(data)) {
+          this.emit('log', line, 'stderr')
+        }
+      })
+    }
   }
 
   kill () {
