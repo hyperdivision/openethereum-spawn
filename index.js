@@ -56,6 +56,16 @@ class Parity {
       const modules = Object.entries(opts.logging).map(p => p.join('=')).join()
       this.argv.push('--logging', modules)
     }
+
+    this.process = spawn(this.execPath, this.argv, { stdio: opts.stdio })
+    this.started = isRunningPoll(this.ipcPath, this.process)
+    this.stopped = new Promise(resolve => {
+      this.process.on('exit', resolve)
+    })
+  }
+
+  kill () {
+    this.process.kill()
   }
 }
 
