@@ -1,0 +1,26 @@
+{
+  "name": "parity-spawn",
+  "version": "0.0.0",
+  "description": ".",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "pretest": "standard",
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyperdivision/parity-spawn.git"
+  },
+  "keywords": [],
+  "author": "Emil Bay <github@tixz.dk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyperdivision/parity-spawn/issues"
+  },
+  "homepage": "https://github.com/hyperdivision/parity-spawn#readme"
+}
