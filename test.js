@@ -1,21 +1,22 @@
-const Parity = require('.')
+const Parity = require('./')
+const parityExec = require('parity-binary')
 
-const p = new Parity({
-  parityExec: './parity',
+main().catch(console.error)
 
-  basePath: './parity-data',
-  port: 3000,
-  light: true,
-  onDemandTimeWindow: 120,
-  ws: false,
-  jsonrpc: false,
-  ipc: true,
-  ipcPath: './parity.sock',
-  apis: ['eth', 'parity_pubsub'],
-  chain: 'foundation',
-  minPeers: 75,
-  maxPeers: 256,
-  logging: {
-    rpc: 'trace'
-  }
-})
+async function main () {
+  const p = new Parity({
+    parityExec,
+    ipc: true,
+    basePath: './data'
+  })
+
+  p.on('log', function (data) {
+    console.log('parity log:', data)
+  })
+
+  const started = await p.started
+  console.log('started and operational?', started)
+  setTimeout(() => p.kill(), 1000)
+  const code = await p.stopped
+  console.log('stopped with', code)
+}

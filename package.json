@@ -10,11 +10,12 @@
     "newline-decoder": "^1.0.0"
   },
   "devDependencies": {
-    "parity-binary": "^1.0.3"
+    "parity-binary": "^1.0.3",
+    "standard": "^14.3.3"
   },
   "scripts": {
     "pretest": "standard",
-    "test": "tape test.js"
+    "test": "node test"
   },
   "repository": {
     "type": "git",
