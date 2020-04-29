@@ -1,9 +1,11 @@
 const Parity = require('./')
+const parityExec = require('parity-binary')
 
 main().catch(console.error)
 
 async function main () {
   const p = new Parity({
+    parityExec,
     ipc: true,
     basePath: './data'
   })

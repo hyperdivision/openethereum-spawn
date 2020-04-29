@@ -9,7 +9,9 @@
   "dependencies": {
     "newline-decoder": "^1.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "parity-binary": "^1.0.3"
+  },
   "scripts": {
     "pretest": "standard",
     "test": "tape test.js"
