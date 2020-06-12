@@ -10,7 +10,7 @@
     "newline-decoder": "^1.0.0"
   },
   "devDependencies": {
-    "openethereum-binary": "^2.0.1",
+    "openethereum-binary": "^2.0.2",
     "standard": "^14.3.3"
   },
   "scripts": {
