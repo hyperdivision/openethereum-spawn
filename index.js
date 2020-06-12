@@ -5,11 +5,11 @@ const { spawn } = require('child_process')
 const NewlineDecoder = require('newline-decoder')
 const { EventEmitter } = require('events')
 
-class Parity extends EventEmitter {
+class OpenEthereum extends EventEmitter {
   constructor (opts = {}) {
     super()
 
-    this.execPath = opts.parityExec == null ? 'parity' : path.resolve(opts.parityExec)
+    this.execPath = opts.exec == null ? 'openethereum' : path.resolve(opts.exec)
     this.argv = []
 
     if (opts.port) this.argv.push('--port', opts.port)
@@ -24,7 +24,7 @@ class Parity extends EventEmitter {
           this.basePath = path.join(os.homedir(), 'Library/Application Support/io.parity.ethereum')
           break
         case 'win32':
-          this.basePath = path.join(os.homedir(), 'AppData/Roaming/Parity/Ethereum')
+          this.basePath = path.join(os.homedir(), 'AppData/Local/Parity/Ethereum')
           break
         case 'linux':
         default:
@@ -133,4 +133,4 @@ async function isRunning (ipc) {
   })
 }
 
-module.exports = Parity
+module.exports = OpenEthereum

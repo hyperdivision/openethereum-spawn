@@ -1,7 +1,7 @@
 {
-  "name": "parity-spawn",
+  "name": "openethereum-spawn",
   "version": "1.0.1",
-  "description": ".",
+  "description": "(formerly `parity-spawn`)",
   "main": "index.js",
   "publishConfig": {
     "access": "public"
@@ -10,7 +10,7 @@
     "newline-decoder": "^1.0.0"
   },
   "devDependencies": {
-    "parity-binary": "^1.0.3",
+    "openethereum-binary": "^2.0.1",
     "standard": "^14.3.3"
   },
   "scripts": {
@@ -19,13 +19,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hyperdivision/parity-spawn.git"
+    "url": "git+https://github.com/hyperdivision/openethereum-spawn.git"
   },
   "keywords": [],
   "author": "Emil Bay <github@tixz.dk>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hyperdivision/parity-spawn/issues"
+    "url": "https://github.com/hyperdivision/openethereum-spawn/issues"
   },
-  "homepage": "https://github.com/hyperdivision/parity-spawn#readme"
+  "homepage": "https://github.com/hyperdivision/openethereum-spawn#readme"
 }

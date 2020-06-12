@@ -1,17 +1,17 @@
-const Parity = require('./')
-const parityExec = require('parity-binary')
+const OpenEthereum = require('./')
+const openethereumExec = require('openethereum-binary')
 
 main().catch(console.error)
 
 async function main () {
-  const p = new Parity({
-    parityExec,
+  const p = new OpenEthereum({
+    openethereumExec,
     ipc: true,
     basePath: './data'
   })
 
   p.on('log', function (data) {
-    console.log('parity log:', data)
+    console.log('openethereum log:', data)
   })
 
   const started = await p.started

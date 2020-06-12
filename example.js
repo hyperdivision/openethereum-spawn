@@ -1,17 +1,16 @@
-const Parity = require('./')
-const parityExec = require('parity-binary')
+const OpenEthereum = require('./')
 
 main().catch(console.error)
 
 async function main () {
-  const p = new Parity({
-    parityExec,
+  const p = new OpenEthereum({
+    exec: require('openethereum-binary'),
     ipc: true,
     basePath: './data'
   })
 
   p.on('log', function (data) {
-    console.log('parity log:', data)
+    console.log('openethereum log:', data)
   })
 
   process.on('SIGINT', () => p.kill())

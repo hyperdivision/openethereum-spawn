@@ -1,15 +1,34 @@
-# `parity-spawn`
+# `openethereum-spawn`
 
-## Renamed to [`openethereum-spawn`](https://www.npmjs.com/package/openethereum-spawn)
+[![Build Status](https://travis-ci.org/hyperdivision/openethereum-spawn.svg?branch=master)](https://travis-ci.org/hyperdivision/openethereum-spawn)
 
-[![Build Status](https://travis-ci.org/hyperdivision/parity-spawn.svg?branch=master)](https://travis-ci.org/hyperdivision/parity-spawn)
-
->
+> (formerly `parity-spawn`)
 
 ## Usage
 
 ```js
-var Parity = require('parity-spawn')
+const OpenEthereum = require('openethereum-spawn')
+
+main().catch(console.error)
+
+async function main () {
+  const p = new OpenEthereum({
+    exec: require('openethereum-binary'),
+    ipc: true,
+    basePath: './data'
+  })
+
+  p.on('log', function (data) {
+    console.log('openethereum log:', data)
+  })
+
+  process.on('SIGINT', () => p.kill())
+
+  const started = await p.started
+  console.log('started and operational?', started)
+  const code = await p.stopped
+  console.log('stopped with', code)
+}
 
 ```
 
@@ -20,7 +39,7 @@ var Parity = require('parity-spawn')
 ## Install
 
 ```sh
-npm install parity-spawn
+npm install openethereum-spawn
 ```
 
 ## License
