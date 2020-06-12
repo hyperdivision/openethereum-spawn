@@ -1,5 +1,7 @@
 # `parity-spawn`
 
+## Renamed to [`openethereum-spawn`](https://www.npmjs.com/package/openethereum-spawn)
+
 [![Build Status](https://travis-ci.org/hyperdivision/parity-spawn.svg?branch=master)](https://travis-ci.org/hyperdivision/parity-spawn)
 
 >
